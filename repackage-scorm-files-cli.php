@@ -30,7 +30,7 @@ foreach ($missingscormcontent->children() as $missingscormdetails) {
     if (!file_exists($scormdir)) {
 
         // Sort it out
-
+        mtrace($scormdir . ' directory  not found');
     } else {
 
         // Initialise archive object
@@ -59,5 +59,9 @@ foreach ($missingscormcontent->children() as $missingscormdetails) {
         }
 
         $zip->close();
+        mtrace($scormdir . ' directory found');
+        mtrace($scormdir . ' directory zipped to file ' . $filename);
     }
 }
+
+mtrace('Fin');
