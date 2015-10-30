@@ -48,7 +48,7 @@ foreach ($missingscormcontent->children() as $missingscormdetails) {
 
                 // Get real and relative path for current file
                 $filePath = $file->getRealPath();
-                $relativePath = substr($filePath, strlen($scormdir) + 1);
+                $relativePath = substr($filePath, strlen($scormdir));
 
                 // Add current file to archive
                 $zip->addFile($filePath, $relativePath);
