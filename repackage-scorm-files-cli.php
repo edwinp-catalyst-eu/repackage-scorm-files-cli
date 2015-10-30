@@ -10,9 +10,6 @@ $repackedscormfolder = '/'; // Include trailing slash
 // What is the root dir of the extracted SCORM data?
 $scormdatadir = '/'; // Include trailing slash
 
-// Create arrays to record repackaged SCORM file details
-$repackaged = array();
-
 $missingscormcontent = simplexml_load_file('missing_scorm_content.xml') or die('wtf');
 
 foreach ($missingscormcontent->children() as $missingscormdetails) {
@@ -59,9 +56,7 @@ foreach ($missingscormcontent->children() as $missingscormdetails) {
         }
 
         $zip->close();
-        mtrace($scormdir . ' directory found');
-        mtrace($scormdir . ' directory zipped to file ' . $filename);
+        echo $scormdir . " directory found\n";flush();
+        echo "{$scormdir} directory zipped to file {$filename}\n";flush();
     }
 }
-
-mtrace('Fin');
